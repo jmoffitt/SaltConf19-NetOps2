@@ -32,7 +32,9 @@ Don't forget your second router!
 ## Staging firmware
 Due to the topology of the lab environment we are going to do this the old-fashioned way, but below is how I would structure a state file to have each proxy host carry this out.
 First, we'll SCP the file to the routers.
+
 `scp /root/vEOS-lab-4.22.2.1F.swi admin@veos2://mnt/flash/vEOS-lab-4.22.2.1F.swi`
+
 `scp /root/vEOS-lab-4.22.2.1F.swi admin@veos3://mnt/flash/vEOS-lab-4.22.2.1F.swi`
 
 ```
@@ -63,8 +65,11 @@ Because multi-part orchestrations can touch multiple groups of targets, they occ
 !!! Please note that in its current iteration, reloading the switch is not recoverable!  If you want to continue with any further automation, comment out or replace the state segment that sends the reload command to the switch. !!!
 
 `mkdir -p /srv/salt/eos`
+
 `vi /srv/salt/eos/run_upgrade.sls` -- There is a lot here, you are heavily encouraged to type this out yourself
+
 `mkdir -p /srv/salt/orch`
+
 `vi /srv/salt/orch/upgrade_ab.sls`
 
 Other things we'd want to do in a live environment:
