@@ -72,6 +72,9 @@ Because multi-part orchestrations can touch multiple groups of targets, they occ
 
 `vi /srv/salt/orch/upgrade_ab.sls`
 
+## Run it (except the reboot!)
+`salt-run state.orch orch.upgrade_ab`
+
 Other things we'd want to do in a live environment:
 - Retrieve machine data from pillar
 - Validate against vendor-provided md5 or hardfail the entire orchestration
