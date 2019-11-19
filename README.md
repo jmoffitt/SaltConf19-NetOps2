@@ -39,6 +39,7 @@ First, we'll SCP the file to the routers.
 
 ```
 # scp_distribute.sls
+# This particular implementation assumes that a number of minions are proxy hosts and you have some source for the proxies that belong to them -- the scp.put command itself should run against the device uploading to the proxies, as the pyeapi proxy module does not have an SCP function
 {% import_yaml 'proxy_manifest.yaml' as proxies %}
 {% for proxy in proxies %}
 scp_to_{{ proxy }}:
